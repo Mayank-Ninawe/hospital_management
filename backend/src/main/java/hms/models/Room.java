@@ -1,6 +1,8 @@
 package hms.models;
 
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +11,8 @@ import jakarta.persistence.Column;
 import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NoArgsConstructor
 public abstract class Room {
 
