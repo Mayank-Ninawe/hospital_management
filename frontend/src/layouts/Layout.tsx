@@ -3,10 +3,20 @@ import { useEffect, useMemo, useState } from 'react';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 import { ToastContainer } from '../components/ui/ToastContainer';
+import { useHmsStore } from '../store/hmsStore';
 
 export default function Layout() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { fetchPatients, fetchDoctors, fetchNurses, fetchRooms, fetchAppointments } = useHmsStore();
+
+  useEffect(() => {
+    fetchPatients();
+    fetchDoctors();
+    fetchNurses();
+    fetchRooms();
+    fetchAppointments();
+  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);

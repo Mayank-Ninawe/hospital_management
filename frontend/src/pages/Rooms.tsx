@@ -61,7 +61,7 @@ export default function Rooms() {
       const roomNum = Number(formData.num);
       let patientName;
       if (formData.patientId) {
-        patientName = patients.find(p => p.id === formData.patientId)?.name;
+        patientName = patients.find(p => p.id === Number(formData.patientId))?.name;
       }
 
       const newRoom = {

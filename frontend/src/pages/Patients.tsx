@@ -35,7 +35,7 @@ export default function Patients() {
     
     if (!formData.id.trim()) {
       newErrors.id = 'Patient ID is required';
-    } else if (patients.some(p => p.id === formData.id)) {
+    } else if (patients.some(p => p.id === Number(formData.id))) {
       newErrors.id = 'Patient ID must be unique';
     }
 

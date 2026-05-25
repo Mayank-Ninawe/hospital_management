@@ -27,14 +27,14 @@ export default function Appointments() {
       return;
     }
 
-    const patient = patients.find(p => p.id === formData.patientId);
-    const doctor = doctors.find(d => d.id === formData.doctorId);
+    const patient = patients.find(p => p.id === parseInt(formData.patientId));
+    const doctor = doctors.find(d => d.id === parseInt(formData.doctorId));
     const newAppointment: Appointment = {
       patientName: patient?.name || "Unknown",
       doctorName: doctor?.name || "Unknown",
-      id: `A${Math.floor(Math.random() * 1000)}`,
-      patientId: formData.patientId,
-      doctorId: formData.doctorId,
+      id: Math.floor(Math.random() * 1000000),
+      patientid: parseInt(formData.patientId),
+      doctorid: parseInt(formData.doctorId),
       date: formData.date,
       time: formData.time,
       status: 'Scheduled',
@@ -73,8 +73,8 @@ export default function Appointments() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {appointments.map(apt => {
-            const patient = patients.find(p => p.id === apt.patientId);
-            const doctor = doctors.find(d => d.id === apt.doctorId);
+            const patient = patients.find(p => p.id === apt.patientid);
+            const doctor = doctors.find(d => d.id === apt.doctorid);
 
             return (
               <LiquidGlassCard key={apt.id} className="p-5 flex flex-col h-full animate-[rowIn_200ms_ease]">
@@ -90,11 +90,11 @@ export default function Appointments() {
                   </div>
                   <div>
                     <span className="text-xs text-white/50 block">Patient</span>
-                    <span className="text-sm text-white">{patient?.name || apt.patientId}</span>
+                    <span className="text-sm text-white">{patient?.name || apt.patientid}</span>
                   </div>
                   <div>
                     <span className="text-xs text-white/50 block">Doctor</span>
-                    <span className="text-sm text-white">{doctor?.name || apt.doctorId}</span>
+                    <span className="text-sm text-white">{doctor?.name || apt.doctorid}</span>
                   </div>
                 </div>
 

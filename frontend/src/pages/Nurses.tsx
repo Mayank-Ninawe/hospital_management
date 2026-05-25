@@ -30,7 +30,7 @@ export default function Nurses() {
     
     if (!formData.id.trim()) {
       newErrors.id = 'Nurse ID is required';
-    } else if (nurses.some(n => n.id === formData.id)) {
+    } else if (nurses.some(n => n.id === parseInt(formData.id))) {
       newErrors.id = 'Nurse ID must be unique';
     }
 
@@ -48,7 +48,7 @@ export default function Nurses() {
   const handleAddNurse = () => {
     if (validate()) {
       const newNurse: Nurse = {
-        id: formData.id,
+        id: parseInt(formData.id),
         name: formData.name,
         age: parseInt(formData.age),
         shift: formData.shift
@@ -61,7 +61,7 @@ export default function Nurses() {
     }
   };
 
-  const handleRemove = (id: string, name: string) => {
+  const handleRemove = (id: number, name: string) => {
     if (window.confirm(`Are you sure you want to remove ${name} from the staff?`)) {
       removeNurse(id);
       showToast(`Nurse ${name} removed.`, 'info');
