@@ -40,8 +40,9 @@ export const useHmsStore = create<HMSState>((set, get) => ({
       if (!res.ok) throw new Error('Failed to fetch patients');
       const data = await res.json();
       set({ patients: data, loading: false });
-    } catch (err: any) {
-      set({ error: err.message || 'An error occurred', loading: false });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'An error occurred';
+      set({ error: message, loading: false });
     }
   },
 
@@ -56,8 +57,9 @@ export const useHmsStore = create<HMSState>((set, get) => ({
       if (!res.ok) throw new Error('Failed to add patient');
       const newPatient = await res.json();
       set((state) => ({ patients: [...state.patients, newPatient], loading: false }));
-    } catch (err: any) {
-      set({ error: err.message || 'An error occurred', loading: false });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'An error occurred';
+      set({ error: message, loading: false });
     }
   },
 
@@ -71,8 +73,9 @@ export const useHmsStore = create<HMSState>((set, get) => ({
             patients: state.patients.map((p) => p.id === updatedPatient.id ? updatedPatient : p),
             loading: false
         }));
-    } catch (err: any) {
-        set({ error: err.message || 'An error occurred', loading: false });
+    } catch (err) {
+        const message = err instanceof Error ? err.message : 'An error occurred';
+        set({ error: message, loading: false });
     }
   },
 
@@ -83,8 +86,9 @@ export const useHmsStore = create<HMSState>((set, get) => ({
       if (!res.ok) throw new Error('Failed to fetch doctors');
       const data = await res.json();
       set({ doctors: data, loading: false });
-    } catch (err: any) {
-      set({ error: err.message || 'An error occurred', loading: false });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'An error occurred';
+      set({ error: message, loading: false });
     }
   },
 
@@ -99,8 +103,9 @@ export const useHmsStore = create<HMSState>((set, get) => ({
       if (!res.ok) throw new Error('Failed to add doctor');
       const newDoctor = await res.json();
       set((state) => ({ doctors: [...state.doctors, newDoctor], loading: false }));
-    } catch (err: any) {
-      set({ error: err.message || 'An error occurred', loading: false });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'An error occurred';
+      set({ error: message, loading: false });
     }
   },
 
@@ -113,8 +118,9 @@ export const useHmsStore = create<HMSState>((set, get) => ({
         doctors: state.doctors.filter((d) => d.id !== id),
         loading: false
       }));
-    } catch (err: any) {
-      set({ error: err.message || 'An error occurred', loading: false });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'An error occurred';
+      set({ error: message, loading: false });
     }
   },
 }));

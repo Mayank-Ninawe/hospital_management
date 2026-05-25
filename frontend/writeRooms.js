@@ -2,7 +2,7 @@ const fs = require("fs");
 const content = `  
 import React, { useState, useEffect } from 'react';  
 import { DoorOpen, Plus, UserCircle, Hash } from 'lucide-react';  
-import { useHMSStore } from '../store/hmsStore';  
+import { useHmsStore } from '../store/hmsStore';  
 import { LiquidGlassCard } from '../components/ui/LiquidGlassCard';  
 import { LiquidGlassButton } from '../components/ui/LiquidGlassButton';  
 import { EmptyState } from '../components/ui/EmptyState';  

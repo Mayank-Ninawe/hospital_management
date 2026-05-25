@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DoorOpen, Plus, UserCircle, Hash } from 'lucide-react';
-import { useHMSStore } from '../store/hmsStore';
+import { useHmsStore } from '../store/hmsStore';
 import { LiquidGlassCard } from '../components/ui/LiquidGlassCard';
 import { LiquidGlassButton } from '../components/ui/LiquidGlassButton';
 import { EmptyState } from '../components/ui/EmptyState';
@@ -11,7 +11,7 @@ import { useToast } from '../hooks/useToast';
 import { Room } from '../types';
 
 export default function Rooms() {
-  const { rooms, patients, allocateRoom, vacateRoom, deleteRoom } = useHMSStore();
+  const { rooms, patients, allocateRoom, vacateRoom, deleteRoom } = useHmsStore();
   const { showToast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
 

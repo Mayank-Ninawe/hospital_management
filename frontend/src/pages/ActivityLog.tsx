@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { useHMSStore } from '../store/hmsStore';
+import { useHmsStore } from "../store/hmsStore";
 import { LiquidGlassCard } from '../components/ui/LiquidGlassCard';
 import { LiquidGlassButton } from '../components/ui/LiquidGlassButton';
 import { EmptyState } from '../components/ui/EmptyState';
 import { Activity, Trash2 } from 'lucide-react';
 import { Badge } from '../components/ui/Badge';
+import { ActivityLog } from '../types';
 
 export default function ActivityLogPage() {
-  const { activityLog, clearLog } = useHMSStore();
+  const { activityLog, clearLog } = useHmsStore();
   const [filter, setFilter] = useState<'All' | 'patient' | 'doctor' | 'nurse' | 'appointment' | 'room' | 'system'>('All');
 
   const handleClear = () => {
@@ -20,7 +21,7 @@ export default function ActivityLogPage() {
 
   const filteredLogs = filter === 'All' 
     ? activityLog 
-    : activityLog.filter(log => log.category === filter);
+    : (activityLog as ActivityLog[]).filter((log: ActivityLog) => log.category === filter);
 
   return (
     <div className="max-w-5xl mx-auto space-y-6">
@@ -54,7 +55,7 @@ export default function ActivityLogPage() {
         />
       ) : (
         <LiquidGlassCard className="flex flex-col gap-0 p-0 overflow-hidden">
-          {filteredLogs.map((entry, index) => (
+          {(filteredLogs as ActivityLog[]).map((entry: ActivityLog, index: number) => (
             <div 
               key={entry.id || index} 
               className={`p-4 flex items-center gap-4 ${index !== filteredLogs.length - 1 ? 'border-b border-white/5' : ''} transition-all duration-150 hover:bg-white/[0.03] animate-[rowIn_200ms_ease]`}

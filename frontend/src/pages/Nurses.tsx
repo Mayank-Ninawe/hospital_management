@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UserPlus, Heart, Hash, Fingerprint } from 'lucide-react';
-import { useHMSStore } from '../store/hmsStore';
+import { useHmsStore } from '../store/hmsStore';
 import { LiquidGlassCard } from '../components/ui/LiquidGlassCard';
 import { LiquidGlassButton } from '../components/ui/LiquidGlassButton';
 import { LiquidGlassInput } from '../components/ui/LiquidGlassInput';
@@ -12,7 +12,7 @@ import { useToast } from '../hooks/useToast';
 import { Nurse, NurseShift } from '../types';
 
 export default function Nurses() {
-  const { nurses, addNurse, removeNurse } = useHMSStore();
+  const { nurses, addNurse, removeNurse } = useHmsStore();
   const { showToast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
 

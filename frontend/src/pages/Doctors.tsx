@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UserPlus, Hash, Fingerprint, Stethoscope, Clock } from 'lucide-react';
-import { useHMSStore } from '../store/hmsStore';
+import { useHmsStore } from '../store/hmsStore';
 import { LiquidGlassCard } from '../components/ui/LiquidGlassCard';
 import { LiquidGlassButton } from '../components/ui/LiquidGlassButton';
 import { LiquidGlassInput } from '../components/ui/LiquidGlassInput';
@@ -12,7 +12,7 @@ import { useToast } from '../hooks/useToast';
 import { Doctor } from '../types';
 
 export default function Doctors() {
-  const { doctors, addDoctor, removeDoctor, toggleDoctorAvailability } = useHMSStore();
+  const { doctors, addDoctor, removeDoctor, toggleDoctorAvailability } = useHmsStore();
   const { showToast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');

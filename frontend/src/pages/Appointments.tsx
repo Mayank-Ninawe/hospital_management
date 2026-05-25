@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CalendarPlus, CalendarDays, CheckCircle2, XCircle } from 'lucide-react';
-import { useHMSStore } from '../store/hmsStore';
+import { useHmsStore } from '../store/hmsStore';
 import { LiquidGlassCard } from '../components/ui/LiquidGlassCard';
 import { LiquidGlassButton } from '../components/ui/LiquidGlassButton';
 import { EmptyState } from '../components/ui/EmptyState';
@@ -10,7 +10,7 @@ import { useToast } from '../hooks/useToast';
 import { Appointment } from '../types';
 
 export default function Appointments() {
-  const { appointments, patients, doctors, bookAppointment, cancelAppointment, completeAppointment } = useHMSStore();
+  const { appointments, patients, doctors, bookAppointment, cancelAppointment, completeAppointment } = useHmsStore();
   const { showToast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
