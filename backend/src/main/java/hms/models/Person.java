@@ -4,10 +4,8 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import lombok.NoArgsConstructor;
 
 @MappedSuperclass
-@NoArgsConstructor
 public abstract class Person {
 
     @Id
