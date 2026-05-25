@@ -1,79 +1,50 @@
-# Hospital Management System
+# Hospital Management System (Monorepo)
 
-A comprehensive, full-stack Hospital Management System built with a Spring Boot backend and a React/TypeScript frontend.
+A complete Hospital Management System with a modular React/Vite/TS frontend and a resilient Spring Boot backend. 
 
-## Prerequisites
+## Tech Stack
+* **Frontend**: React 18, Vite, TypeScript, Tailwind CSS, Zustand, React Router.
+* **Backend**: Java 17, Spring Boot 3, Spring Security, Spring Data JPA, PostgreSQL.
 
-- **Java**: 17+
-- **Node.js**: 18+
-- **Database**: MySQL 8+
-- **Maven**: Latest version
+## Folder Structure
+* `frontend/` - React Application. Deploy via Vercel.
+* `backend/` - Spring Boot Application. Deploy via Railway, Render, or any Docker provider.
 
-## Setup and Installation
+## Local Setup
 
-### Backend Setup
-1. Configure your MySQL database credentials in `src/application.properties` (or `src/hms/config/application.properties`).
-2. Run the application:
-   ```bash
-   mvn spring-boot:run
-   ```
-
-### Frontend Setup
-1. Navigate to the `hms-react` directory:
-   ```bash
-   cd hms-react
-   ```
-2. Install the dependencies:
-   ```bash
-   npm install
-   ```
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-### Concurrent Development (Root)
-You can run both backend and frontend via concurrently by using the `package.json` in the root directory:
-```bash
-npm install
-npm run dev
+### 1. Environment Variables
+Create `.env.example` in root, frontend, and backend. 
+**Backend `.env`**:
+```ini
+DB_URL=jdbc:postgresql://localhost:5432/hms
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+JWT_SECRET=supersecret...
+FRONTEND_URL=http://localhost:5173
+```
+**Frontend `.env`**:
+```ini
+VITE_API_URL=http://localhost:8080/api
 ```
 
-## Environment Variables
+### 2. Run Locally
+Run this from the project root (requires `npm run install:frontend` once):
+```bash
+npm run dev
+```
+Alternatively, run them separately:
+* Backend: `cd backend && ./mvnw spring-boot:run`
+* Frontend: `cd frontend && npm run dev`
 
-| Variable | Description |
-| -------- | ----------- |
-| `VITE_API_URL` | Base URL for the backend API from the web app (e.g., `http://localhost:8080/api`). |
-| `spring.datasource.url` | MySQL JDBC URL. |
-| `spring.datasource.username` | MySQL Username. |
-| `spring.datasource.password` | MySQL Password. |
+## Deployment
 
-## API Endpoints
+### Frontend (Vercel)
+Connect the Git repository to Vercel.
+- Framework Preset: Vite
+- Root Directory: `frontend`
+- Build Command: `npm run build`
+- Add `VITE_API_URL` to Vercel Environment Variables targeting your deployed backend.
 
-### Authentication
-- `POST /api/auth/login`: Authenticate and receive a JWT token.
-
-### Patients
-- `GET /api/patients`: Get all patients.
-- `POST /api/patients`: Add a new patient.
-- `PUT /api/patients/{id}/discharge`: Discharge a patient.
-
-### Doctors
-- `GET /api/doctors`: Get all doctors.
-- `POST /api/doctors`: Add a new doctor.
-- `DELETE /api/doctors/{id}`: Remove a doctor.
-
-### Nurses
-- `GET /api/nurses`: Get all nurses.
-- `POST /api/nurses`: Add a new nurse.
-- `DELETE /api/nurses/{id}`: Remove a nurse.
-
-### Rooms
-- `GET /api/rooms`: Get all rooms.
-- `POST /api/rooms`: Allocate a room.
-- `PUT /api/rooms/{num}/vacate`: Vacate a room.
-
-### Appointments
-- `GET /api/appointments`: Get all appointments.
-- `POST /api/appointments`: Book an appointment.
-- `PUT /api/appointments/{id}/status`: Update appointment status.
+### Backend (Render / Railway)
+- **Render**: Connect repository, use the `render.yaml` blueprint provided. It will automatically detect sub-directory Dockerfile and build.
+- **Railway**: Uses the `railway.json` configuration config targeting `backend/Dockerfile`. Include PostgreSQL in Railway and map environment credentials to your railway app's Variables.

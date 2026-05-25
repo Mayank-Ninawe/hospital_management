@@ -1,0 +1,16 @@
+hms\Main.class
+hms\controllers\PatientController.class
+hms\models\Ward.class
+hms\controllers\AppointmentController.class
+hms\models\ICU.class
+hms\DatabaseConnection.class
+hms\models\Doctor.class
+hms\HmsApplication.class
+hms\models\Nurse.class
+hms\models\Appointment.class
+hms\models\Person.class
+hms\models\EmergencyRoom.class
+hms\models\Patient.class
+hms\controllers\DoctorController.class
+hms\controllers\NurseController.class
+hms\DatabaseHelper.class

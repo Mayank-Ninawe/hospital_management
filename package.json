@@ -1,8 +1,14 @@
 {
+  "name": "hospital-management-system-monorepo",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "dev": "concurrently \"mvn spring-boot:run\" \"cd hms-react && npm run dev\"",
-    "frontend": "cd hms-react && npm run dev",
-    "backend": "mvn spring-boot:run"
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "cd backend && ./mvnw spring-boot:run",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:frontend": "npm run build --prefix frontend",
+    "build:backend": "cd backend && ./mvnw clean package -DskipTests",
+    "install:frontend": "npm install --prefix frontend"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
