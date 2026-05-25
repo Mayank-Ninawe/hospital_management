@@ -1,0 +1,9 @@
+node_modules/
+target/
+.env
+.env.production
+.idea/
+*.class
+*.iml
+hms-react/dist/
+hms-react/.vite/

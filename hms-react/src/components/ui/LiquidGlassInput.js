@@ -1,0 +1,4 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+export function LiquidGlassInput({ label, error, icon, className = '', ...props }) {
+    return (_jsxs("div", { className: `flex flex-col gap-1 ${className}`.trim(), children: [label && _jsx("label", { className: "text-xs font-semibold uppercase tracking-wide text-white/50", children: label }), _jsxs("div", { className: `liquid-glass rounded-full pl-5 pr-4 py-2.5 flex items-center gap-3 border ${error ? 'border-red-500/50' : 'border-white/5'}`, children: [icon && _jsx("span", { className: "text-white/40 flex items-center justify-center w-4 h-4", children: icon }), _jsx("input", { ...props, className: "bg-transparent outline-none text-white placeholder:text-white/30 text-sm flex-1" })] }), error && _jsx("span", { className: "text-red-400 text-xs mt-1", children: error })] }));
+}

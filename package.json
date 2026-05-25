@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "concurrently \"mvn spring-boot:run\" \"cd hms-react && npm run dev\"",
+    "frontend": "cd hms-react && npm run dev",
+    "backend": "mvn spring-boot:run"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

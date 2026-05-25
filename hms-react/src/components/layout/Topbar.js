@@ -1,0 +1,5 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Menu, Sun, Moon, UserCircle } from 'lucide-react';
+export default function Topbar({ title, onMenuClick }) {
+    return (_jsx("header", { className: "sticky top-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/8", children: _jsxs("div", { className: "flex items-center justify-between px-6 py-3", children: [_jsxs("div", { className: "flex items-center gap-3", children: [_jsx("button", { onClick: onMenuClick, className: "md:hidden text-white hover:text-white/80 transition-colors", children: _jsx(Menu, { size: 18 }) }), _jsx("h1", { className: "text-base font-semibold text-white font-display", children: title })] }), _jsxs("div", { className: "flex items-center gap-3", children: [_jsxs("button", { className: "text-white/50 hover:text-white transition-colors", children: [_jsx(Sun, { size: 18, className: "hidden" }), _jsx(Moon, { size: 18 })] }), _jsx("div", { className: "w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md", children: _jsx(UserCircle, { size: 20, className: "text-white/70" }) })] })] }) }));
+}
