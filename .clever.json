@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "app_id": "app_c7db22a9-9ff9-417d-a687-a28d02f71ddf",
+      "org_id": "user_87982e39-9909-4fd3-875b-b21aac6d4f56",
+      "deploy_url": "https://push-n3-par-clevercloud-customers.services.clever-cloud.com/app_c7db22a9-9ff9-417d-a687-a28d02f71ddf.git",
+      "git_ssh_url": "git+ssh://git@push-n3-par-clevercloud-customers.services.clever-cloud.com/app_c7db22a9-9ff9-417d-a687-a28d02f71ddf.git",
+      "name": "hms-backend",
+      "alias": "hms-backend"
+    }
+  ]
+}
